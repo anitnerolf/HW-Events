@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Text</title>
+</head>
+<body onkeydown="edit_text(event)">
+    <div id="text">Press CTRL + E to edit this text. To save press CTRL + S.</div>
+    <script>
+    function edit_text(event) {
+        if (event.ctrlKey && event.keyCode == 69) {
+            event.preventDefault();
+            var old_elem = document.getElementById("text");
+            var new_elem = document.createElement("TEXTAREA");
+            var new_content = document.createTextNode(old_elem.textContent);
+            new_elem.appendChild(new_content); 
+            new_elem.id = "text";
+            old_elem.replaceWith(new_elem);
+        }
+        if (event.ctrlKey && event.keyCode == 83) {
+            event.preventDefault();
+            var old_elem2 = document.getElementById("text");
+            var new_elem2 = document.createElement("div");
+            var new_content2 = document.createTextNode(old_elem2.value);
+            new_elem2.appendChild(new_content2); 
+            new_elem2.id = "text";
+            old_elem2.replaceWith(new_elem2);  
+        }
+    }
+    </script>
+</body>
+</html>
